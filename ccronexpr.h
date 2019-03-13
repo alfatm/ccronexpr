@@ -90,6 +90,12 @@ time_t cron_prev(cron_expr* expr, time_t date);
  */
 void cron_set_timezone_offset(int32_t offset);
 
+
+/**
+ */
+int32_t cron_get_timezone_offset();
+
+
 #if defined(__cplusplus) && !defined(CRON_COMPILE_AS_CXX)
 } /* extern "C"*/
 #endif
