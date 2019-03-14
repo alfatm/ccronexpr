@@ -88,12 +88,12 @@ int32_t cron_get_timezone_offset() {
 
 struct tm *gmtime_r(const time_t *timep, struct tm *result);
 struct tm* cron_time(time_t* date, struct tm* out) {
-    return gmtime_r(date + global_tz_offset, out);
+    return gmtime_r(date - global_tz_offset, out);
 }
 
 time_t timegm(struct tm* __tp);
 time_t cron_mktime(struct tm* tm) {
-    return mktime(tm) - global_tz_offset;
+    return mktime(tm) + global_tz_offset;
 }
 
 void cron_set_bit(uint8_t* rbyte, int idx) {
